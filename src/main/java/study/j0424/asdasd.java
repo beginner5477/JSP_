@@ -11,5 +11,9 @@ public class asdasd {
 			}
 			System.out.println();
 		}
+		if("no"=="no")
+		{
+			System.out.println("하이용~~");
+		}
 	}
 }
