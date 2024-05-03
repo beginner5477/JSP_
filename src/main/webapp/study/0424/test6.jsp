@@ -1,5 +1,5 @@
 <%@page import="java.time.LocalDateTime"%>
-<%@page import="java.time.LocalDate"%>
+<%@page import="java.time.LocalDate" %>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,6 +26,7 @@
 	<%
 		/* new Date(); */
 		new java.util.Date();
+		/* new Date(); */
 		
 	%>
 	<p>오늘은 <%=new Date() %>입니다.</p>

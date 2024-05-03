@@ -28,7 +28,7 @@
 	<div>접속 URL <%=request.getRequestURL() %></div>
 	<div>접속 URI <%=request.getRequestURI() %></div>
 	<div>
-		<img src="<%=request.getContextPath() %>/images/113.jpg"/>
+		<img src="<%=request.getContextPath() %>/images/111.jpg"/>
 	</div>
 </div>
 <p><br/><p>

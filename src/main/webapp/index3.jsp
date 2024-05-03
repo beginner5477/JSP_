@@ -13,21 +13,6 @@
     height: 200px;
     background: #aaa;
   }
-  body {
-  	/* opacity: 0.8; */
-  	background-image: url("${pageContext.request.contextPath}/images/123.jpg");
-  	background-size: 100% 100%;
-  	isolation: isolate;
-  	 position: relative;
-  }
-  body::after {
-	  content: '';
-	  position: absolute;
-	  background: white;
-	  z-index: -1;
-	  inset: 0;
-	  opacity: 0.2;
-  }
   </style>
   <script>
   let idleCheck;
@@ -64,9 +49,6 @@
   	}
   	h2 {
   		color: aqua;
-  	}
-  	tr {
-  		color: #blue;
   	}
   </style>
 </head>
@@ -141,6 +123,7 @@
     </div>
   </div>
 </div>
+
 <br/><br/><br/><br/>
 <%@ include file ="../../include/footer.jsp" %>
 </body>

@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-<c:set var="hi" value="${firstCk}"/>
 <head>
   <title>Bootstrap 4 dddㅇㅇㅇWebsite Example</title>
   <meta charset="utf-8">
@@ -13,34 +12,13 @@
     height: 200px;
     background: #aaa;
   }
-  body {
-  	/* opacity: 0.8; */
-  	background-image: url("${pageContext.request.contextPath}/images/123.jpg");
-  	background-size: 100% 100%;
-  	isolation: isolate;
-  	 position: relative;
-  }
-  body::after {
-	  content: '';
-	  position: absolute;
-	  background: white;
-	  z-index: -1;
-	  inset: 0;
-	  opacity: 0.2;
-  }
   </style>
   <script>
   let idleCheck;
   let idleNum = 0;
   	$(()=>{
-  		latestFive1();
   		idleCheck = setInterval(idlePlus, 1000);
   	});
-  	function latestFive1() {
-	  	if("${hi}"=="") {
-	  		location.href="${pageContext.request.contextPath}/database/LatestFive";
-	  	}
-  	}
   	function idlePlus() {
   		idleNum++;
   		if(idleNum == 5) {
@@ -64,9 +42,6 @@
   	}
   	h2 {
   		color: aqua;
-  	}
-  	tr {
-  		color: #blue;
   	}
   </style>
 </head>
@@ -113,7 +88,7 @@
       		<th>gender</th>
       		<th>address</th>
       	</tr>
-      	<c:forEach var="vo" items="${vos}" varStatus="st">
+      	<c:forEach var="vo" items="${recentVos}" varStatus="st">
       		<tr>
       			<td>${vo.getIdx()}</td>
       			<td>${vo.getMid()}</td>
@@ -141,6 +116,7 @@
     </div>
   </div>
 </div>
+
 <br/><br/><br/><br/>
 <%@ include file ="../../include/footer.jsp" %>
 </body>

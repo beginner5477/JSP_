@@ -19,16 +19,18 @@ public class ElTest extends HttpServlet {
 		
 		String name = request.getParameter("name")==null ? "" : request.getParameter("name");
 		String[] hobbys = request.getParameterValues("hobby");
-		
+		String hobby2 = request.getParameter("hobby");
+		System.out.println(name);
 		String hobby = "";
 		for(String h : hobbys) {
 			hobby += h + "/";
 		}
 		hobby = hobby.substring(0, hobby.length()-1);
-		
 		request.setAttribute("name", name);
 		request.setAttribute("hobby", hobby);
 
+		System.out.println(hobby);
+		System.out.println(hobby2);
 		String viewPage = "/study/0429_JSTL/el1.jsp";
 //		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 //		dispatcher.forward(request, response);

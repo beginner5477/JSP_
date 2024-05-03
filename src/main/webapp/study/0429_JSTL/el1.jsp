@@ -24,7 +24,8 @@
   <hr/>
 <%
   String atom = "Seoul";
-	String name = "홍길동";
+	String hobby = "abc";
+	String name = "홍길d21동";
 	int su1 = 100, su2 = 200;
 	String su3 = "100", su4 = "400";
 %>
@@ -42,7 +43,7 @@
 	  <h4>EL을 이용한 출력</h4>
 <%
 		request.setAttribute("atom", atom);
-		pageContext.setAttribute("name", name);
+		/* pageContext.setAttribute("name", name); */
 		pageContext.setAttribute("su1", su1);
 		pageContext.setAttribute("su2", su2);
 		pageContext.setAttribute("su3", su3);
@@ -85,7 +86,10 @@
 	</div>
 	<hr/>
 <%
-  name = request.getParameter("name")==null ? "" : request.getParameter("name");
+ /*  name = request.getParameter("name")==null ? "" : request.getParameter("name");
+  hobby = request.getParameter("hobby")==null ? "" : request.getParameter("hobby"); */
+  System.out.println(request.getAttribute("name"));
+  System.out.println(request.getAttribute("hobby"));
   if(!name.equals("")) {
 %>
 		<p>성명 : ${name}</p>
