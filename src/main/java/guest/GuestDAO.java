@@ -58,11 +58,13 @@ public class GuestDAO {
 		}
 	}
 
-	public ArrayList<GuestVO> getGuestList() {
+	public ArrayList<GuestVO> getGuestList(int startIndexNo, int pageSize) {
 		ArrayList<GuestVO> vos = new ArrayList<GuestVO>();
 		try {
-			sql = "select * from guest order by idx desc";
+			sql = "select * from guest order by idx desc limit ?,?";
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startIndexNo);
+			pstmt.setInt(2, pageSize);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				vo = new GuestVO();
@@ -75,6 +77,7 @@ public class GuestDAO {
 				vo.setGuestIP(rs.getString("guestIP"));
 				vos.add(vo);
 			}
+			System.out.println(vo.getEmail()+"dd");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -100,5 +103,22 @@ public class GuestDAO {
 			pstmtClose();
 		}
 		return res;
+	}
+	
+	//방명록 글의 총 분량 record 갯수를 구하는것
+	public int getTotRecCnt() {
+		int totRecCnt = 0;
+		try {
+			sql = "select count(*) AS cnt from guest";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			totRecCnt = rs.getInt("cnt");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			rsClose();
+		}
+		return totRecCnt;
 	}
 }

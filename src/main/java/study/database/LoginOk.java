@@ -23,19 +23,23 @@ public class LoginOk extends HttpServlet{
 		LoginVO vo = dao.getLoginIdCheck(mid,pwd);
 		System.out.println("vo: "+vo);
 		
+		vo = dao.getLoginIdCheck(mid, pwd);
+		
 		HttpSession session = request.getSession();
-		session.setAttribute("sMid", mid);
+		
 		PrintWriter out = response.getWriter();
 		System.out.println(vo.getMid());
+		
+		
 		if(vo.getMid() == null) {
 			out.println("<script>");
 			out.println("alert('로그인 실패하였습니다.');");
 			out.println("location.href='"+request.getContextPath()+"/study/database/login.jsp';");
 			out.println("</script>");
-			System.out.println("뭐다냥");
 		} else {
 			// 쿠키에 아이디를 저장/해제 처리한다.
 			// 로그인시 아이디저장시킨다고 체크하면 쿠키에 아이디 저장하고, 그렇지 않으면 쿠키에서 아이디를 제거한다.
+			session.setAttribute("sMid", mid);
 			String idSave = request.getParameter("idSave")==null ? "off" : "on";
 			Cookie cookieMid = new Cookie("cMid", mid);
 			cookieMid.setPath("/");

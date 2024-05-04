@@ -12,4 +12,6 @@ CREATE TABLE guest(
 DESC guest;
 
 INSERT INTO guest VALUES (DEFAULT,'관리자','방명록 게시합니다~','ddd1431@naver.com','www.naver.com',DEFAULT,'192.168.50.63');
+SELECT count(email) FROM guest;
+SELECT * FROM guest ORDER BY idx limit 1,5;
 SELECT * FROM guest;
