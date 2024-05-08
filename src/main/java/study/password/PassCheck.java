@@ -47,13 +47,12 @@ public class PassCheck extends HttpServlet{
 			
 			//암호화시킬 salt키를 선정
 			long key = 0x1234ABCD;
-			long encPwd = intPwd ^ key;
-			encPwd = encPwd << 1;
-			strPwd = encPwd+"";
+			long encPwd = (intPwd) ^ key;
+			strPwd = key+String.valueOf(encPwd);
 			System.out.println("암호화된 비번:"+strPwd);	//암호화된 비번
 			System.out.println("디비에 저장중입니다."+strPwd);	//DB에 저장하는 것을 가정함
 			
-			long decPwd = Long.parseLong(strPwd) >> 1;
+			long decPwd = Long.parseLong(strPwd);
 			decPwd = decPwd ^ key;
 			strPwd = decPwd + "";
 			System.out.println("해독된 비번"+strPwd);

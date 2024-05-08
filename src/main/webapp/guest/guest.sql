@@ -15,3 +15,4 @@ INSERT INTO guest VALUES (DEFAULT,'관리자','방명록 게시합니다~','ddd1
 SELECT count(email) FROM guest;
 SELECT * FROM guest ORDER BY idx limit 1,5;
 SELECT * FROM guest;
+SELECT * FROM hoewon;

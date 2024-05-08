@@ -3,7 +3,7 @@
 	String mid_ = (String) session.getAttribute("sMid") == null ? "" : (String) session.getAttribute("sMid");
 %>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="<%=request.getContextPath()%>">Home</a>
+  <a class="navbar-brand" href="<%=request.getContextPath()%>/DDay">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -52,6 +52,14 @@
 			    </button>
 			    <div class="dropdown-menu">
 			      <a class="dropdown-item" href="<%=request.getContextPath()%>/study/password/passCheck.jsp">비번 암호화 연습</a>
+			      <a class="dropdown-item" href="<%=request.getContextPath()%>/mapping/Test1">디렉토리 mapping 연습</a>
+			      <a class="dropdown-item" href="<%=request.getContextPath()%>/mapping/Test2.do">확장자 mapping 연습</a>
+			      <a class="dropdown-item" href="<%=request.getContextPath()%>/mapping/Test3.do3">확장자3 mapping 연습</a>
+			      <a class="dropdown-item" href="<%=request.getContextPath()%>/mapping/Test4.do4">확장자4 mapping 연습</a>
+			      <a class="dropdown-item" href="<%=request.getContextPath()%>/test5.do5">확장자5 mapping 연습</a>
+			      <a class="dropdown-item" href="<%=request.getContextPath()%>/ajax/test1.st">AJAX 연습</a>
+			      <a class="dropdown-item" href="<%=request.getContextPath()%>/ajax/test2.st">AJAX 연습 응용</a>
+			      <a class="dropdown-item" href="<%=request.getContextPath()%>/ajax/test3.st">AJAX 연습 회원관리</a>
 			    </div>
 			  </div>
       </li>

@@ -23,7 +23,7 @@ public class FilterCertification implements Filter{
 		String u = request.getParameter("u") == null ? "" : request.getParameter("u");
 		System.out.println(admin+"/"+u);
 		System.out.println(request.getRemoteAddr());
-		if(request.getRemoteAddr().equals("192.168.50.69")) {
+		if(request.getRemoteAddr().equals("192.168.50.52")) {
 			return;
 		}
 		PrintWriter out = response.getWriter();

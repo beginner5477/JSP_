@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<jsp:useBean id="now" class="java.util.Date" />
 <!DOCTYPE html>
 <html lang="en">
 <c:set var="hi" value="${firstCk}"/>
@@ -57,6 +60,9 @@
   	document.onkeypress = () => {
   		idleNum = 0;
   	}
+  	function dday() {
+  		document.getElementById("myform").submit();
+  	}
   </script>
   <style>
   	p {
@@ -84,6 +90,16 @@
       <div class="fakeimg">
       	dd
       </div>
+      <fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss"/>
+      <form id="myform" name="myform" method="post" action="/javaclass/DDay"> <input type="date"
+         id="date"
+         name="date"
+         max="2077-06-20"
+         min="2024-05-04"
+         value ="2024-05-07"
+         onchange="dday()"
+  		 /></form>
+      <p>D-Day:${DDay}</p>
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
       <h3>Some Links</h3>
       <p>Lorem ipsum dolor sit ame.</p>
