@@ -49,6 +49,8 @@ public class StudyController extends HttpServlet{
 			command.execute(request, response);
 			viewPage += "/ajax/hoewonMain.jsp";
 			return;
+		} else if(com.equals("uuidForm")) {
+			viewPage += "/uuid/uuidForm.jsp";
 		}
 		
 		

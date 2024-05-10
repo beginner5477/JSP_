@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
-	String mid_ = (String) session.getAttribute("sMid") == null ? "" : (String) session.getAttribute("sMid");
+	String mid_ = session.getAttribute("sMid") == null?"":session.getAttribute("sMid").toString();
+	pageContext.setAttribute("mid_", mid_);
 %>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand" href="<%=request.getContextPath()%>/DDay">Home</a>
@@ -12,9 +14,7 @@
       <li class="nav-item">
         <a class="nav-link" href="${pageContext.request.contextPath}/GuestList">Guest</a>
       </li>
-      <%
-      	if(!mid_.equals("")) {
-      %>
+      <c:if test="${mid_ != ''}">
       <li class="nav-item">
         <a class="nav-link" href="#">Board</a>
       </li>
@@ -60,20 +60,37 @@
 			      <a class="dropdown-item" href="<%=request.getContextPath()%>/ajax/test1.st">AJAX 연습</a>
 			      <a class="dropdown-item" href="<%=request.getContextPath()%>/ajax/test2.st">AJAX 연습 응용</a>
 			      <a class="dropdown-item" href="<%=request.getContextPath()%>/ajax/test3.st">AJAX 연습 회원관리</a>
+			      <a class="dropdown-item" href="<%=request.getContextPath()%>/uuidForm.st">UUID 연습</a>
+			      <a class="dropdown-item" href="<%=request.getContextPath()%>/study/database/login.jsp">로그인 연습</a>
 			    </div>
 			  </div>
       </li>
-      <%
-      	}
-      %>
+      <li class="nav-item mr-2">
+        <div class="dropdown">
+			    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+			      MyPage
+			    </button>
+			    <div class="dropdown-menu">
+			      <a class="dropdown-item" href="MemberMain.mem">회원메인방</a>
+			      <a class="dropdown-item" href="#">일정관리</a>
+			      <a class="dropdown-item" href="#">메세지관리</a>
+			      <a class="dropdown-item" href="MemberUpdate.mem">회원정보수정</a>
+			      <a class="dropdown-item" href="MemberList.mem">회원리스트</a>
+			      <a class="dropdown-item" href="MemberDelete.mem">회원탈퇴</a>
+			      <a class="dropdown-item" href="#">관리자메뉴</a>
+			    </div>
+		</div>
+      </li>
+      </c:if>
       <li class="nav-item">
-      <% if(!mid_.equals("")) {%>
+      	<c:if test="${mid_ != ''}">
         <a class="nav-link" href="${pageContext.request.contextPath}/j0427/Logout">LogOut</a>
         <a class="nav-link" href="${pageContext.request.contextPath}/database/Logout">LogOut</a>
-      <%} else { %>
+      </c:if>
+        <c:if test="${mid_ == ''}">
         <a class="nav-link" href="<%=request.getContextPath()%>/study/0428_logIn/login.jsp">LogIn</a>
         <a class="nav-link" href="<%=request.getContextPath()%>/study/database/login.jsp">LogIn</a>
-      <%} %>
+       </c:if>
       </li>    
     </ul>
   </div>  

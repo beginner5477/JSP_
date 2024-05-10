@@ -77,10 +77,10 @@
   </style>
 </head>
 <body>
-<%@ include file ="../../include/header.jsp" %>
+<%@ include file ="./include/header.jsp" %>
 
 
-<%@ include file ="../../include/nav.jsp" %>
+<%@ include file ="./include/nav.jsp" %>
 
 <div class="container" style="margin-top:30px;" >
   <div class="row">
@@ -96,7 +96,6 @@
          name="date"
          max="2077-06-20"
          min="2024-05-04"
-         value ="2024-05-07"
          onchange="dday()"
   		 /></form>
       <p>D-Day:${DDay}</p>

@@ -27,7 +27,7 @@ public class DDay extends HttpServlet {
 			session.setAttribute("DDay", date.until(targetDate,ChronoUnit.DAYS));
 			
 		}
-		request.getRequestDispatcher("/").forward(request, response);
+		request.getRequestDispatcher("").forward(request, response);
 	}
 
 }

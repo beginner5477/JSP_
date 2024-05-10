@@ -24,7 +24,6 @@
 	<h2>회원 자료 출력하기</h2>
 	<form name="myform" method="post" action="${ctp}/study/j0429/jstl3Ok">
 		<input type="submit" value="회원리스트" class="btn btn-success"/>
-		
 	</form>
 </div>
 <p><br/><p>
